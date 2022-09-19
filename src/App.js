@@ -1,10 +1,20 @@
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Footer from './components/Footer/Footer';
+import MovieDetail from './components/MovieDetail/MovieDetail';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
-      <h1>Hello World2</h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movie/:imdbID" element={<MovieDetail />} />
+          <Route element={<PageNotFound />} />
+          <Footer />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
